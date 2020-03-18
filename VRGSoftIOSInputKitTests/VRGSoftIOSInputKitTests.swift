@@ -10,10 +10,25 @@ import XCTest
 import VRGSoftIOSInputKit
 
 class VRGSoftIOSInputKitTests: XCTestCase {
+    
+    func testFormatter_withOriginal() {
+        
+        let inputString: String = "380633116310f"
+        
+        let formatter = createSUTFormatter(mask: "+ XX(XXX) XXX-XX-XX")
+        let result: String = formatter.formatter(originalString: inputString)!
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(result, "+ 38(063) 311-63-10")
+    }
+    
+    func testFormatter_withEditing() {
+        
+        let inputString: String = "+ 38(063) 200-42-99"
+        
+        let formatter = createSUTFormatter(mask: "+ XX(XXX) XXX-XX-XX")
+        let result: String = formatter.formatter(forText: inputString, shouldChangeCharactersInRange: .init(), replacementString: "")
+
+        XCTAssertEqual(result, "+ 38(063) 200-42-99")
     }
     
     func testFormattedDigitsSimple_correct() {
