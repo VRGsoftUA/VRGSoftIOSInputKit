@@ -14,10 +14,10 @@
 		8B051704241250EC008087B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B051702241250EC008087B0 /* LaunchScreen.storyboard */; };
 		8B05171424125143008087B0 /* SMFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05170D24125143008087B0 /* SMFilter.swift */; };
 		8B05171524125143008087B0 /* SMFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05170F24125143008087B0 /* SMFormatter.swift */; };
-		8B05171624125143008087B0 /* SMFormatterDigitSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05171024125143008087B0 /* SMFormatterDigitSimple.swift */; };
 		8B05171724125143008087B0 /* SMValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05171224125143008087B0 /* SMValidator.swift */; };
 		8B05171824125143008087B0 /* SMValidationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05171324125143008087B0 /* SMValidationGroup.swift */; };
 		8B051720241257DF008087B0 /* VRGSoftIOSInputKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B05171F241257DF008087B0 /* VRGSoftIOSInputKitTests.swift */; };
+		8BF7D7AA242C9E4C00341D8C /* VRGSoftIOSFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7D7A9242C9E4C00341D8C /* VRGSoftIOSFilterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +42,12 @@
 		8B051705241250EC008087B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B05170D24125143008087B0 /* SMFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMFilter.swift; sourceTree = "<group>"; };
 		8B05170F24125143008087B0 /* SMFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMFormatter.swift; sourceTree = "<group>"; };
-		8B05171024125143008087B0 /* SMFormatterDigitSimple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMFormatterDigitSimple.swift; sourceTree = "<group>"; };
 		8B05171224125143008087B0 /* SMValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMValidator.swift; sourceTree = "<group>"; };
 		8B05171324125143008087B0 /* SMValidationGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMValidationGroup.swift; sourceTree = "<group>"; };
 		8B05171D241257DF008087B0 /* VRGSoftIOSInputKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VRGSoftIOSInputKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B05171F241257DF008087B0 /* VRGSoftIOSInputKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRGSoftIOSInputKitTests.swift; sourceTree = "<group>"; };
 		8B051721241257DF008087B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF7D7A9242C9E4C00341D8C /* VRGSoftIOSFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRGSoftIOSFilterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				8B05170F24125143008087B0 /* SMFormatter.swift */,
-				8B05171024125143008087B0 /* SMFormatterDigitSimple.swift */,
 			);
 			path = Formatter;
 			sourceTree = "<group>";
@@ -159,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8B05171F241257DF008087B0 /* VRGSoftIOSInputKitTests.swift */,
+				8BF7D7A9242C9E4C00341D8C /* VRGSoftIOSFilterTests.swift */,
 				8B051721241257DF008087B0 /* Info.plist */,
 			);
 			path = VRGSoftIOSInputKitTests;
@@ -296,7 +296,6 @@
 				8B05171824125143008087B0 /* SMValidationGroup.swift in Sources */,
 				8B0516FF241250EA008087B0 /* ViewController.swift in Sources */,
 				8B05171424125143008087B0 /* SMFilter.swift in Sources */,
-				8B05171624125143008087B0 /* SMFormatterDigitSimple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B051720241257DF008087B0 /* VRGSoftIOSInputKitTests.swift in Sources */,
+				8BF7D7AA242C9E4C00341D8C /* VRGSoftIOSFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,58 +7,74 @@
 //
 
 import Foundation
-import UIKit
+
+public typealias SMFilteredBlock = ((String) -> ())?
 
 public protocol SMFilterProtocol {
-    var filteredText: String? { get }
+    func filter(_ sourceText: String) -> String
 }
 
-open class SMFilter {
+extension SMFilterProtocol {
+    public func replaceText(_ sourceText: String, range aRange: NSRange, replacementText text: String) -> String? {
+        
+        guard let stringRange = Range(aRange, in: sourceText) else {
+            return nil
+        }
+
+        let updatedText = sourceText.replacingCharacters(in: stringRange, with: text)
+        
+        return updatedText
+    }
     
-    open var maxLengthText: Int = Int.max
+    public func filter(_ sourceText: String, range aRange: NSRange, replacementText aText: String) -> String {
+        
+        if let updatedText: String = replaceText(sourceText, range: aRange, replacementText: aText) {
+            
+            return filter(updatedText)
+        } else {
+            
+            return sourceText
+        }
+    }
+}
+
+open class SMMaxLengthFilter: SMFilterProtocol {
+    
+    public var maxLengthText: Int
     
     public init(maxLengthText aMaxLengthText: Int) {
         
         maxLengthText = aMaxLengthText
     }
     
-    open func inputField(_ inputField: SMFilterProtocol, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func filter(_ sourceText: String) -> String {
         
-        var result: Bool = true
-        
-        if text.count > 0 {
-            
-            var charactersCount: Int = 0
-            
-            if let filteredText: String = inputField.filteredText {
-                
-                charactersCount = (filteredText as NSString).replacingCharacters(in: range, with: text).count
-            }
-            
-            result =  charactersCount <= maxLengthText
-        }
-        
-        return result
+        return String(sourceText.prefix(maxLengthText))
     }
 }
 
+open class SMFilterCharacters: SMFilterProtocol {
+    
+    public var allowedCharacters: String
 
-open class SMFilterRegExp: SMFilter {
-    
-    open var regex: String
-    
-    public init(regex aRegex: String, maxLenghtText: Int) {
+    public init(allowedCharacters: String) {
         
-        regex = aRegex
-        
-        super.init(maxLengthText: maxLenghtText)
+        self.allowedCharacters = allowedCharacters
     }
+
+    public func filter(_ sourceText: String) -> String {
+
+        return sourceText.filter(allowedCharacters.contains)
+    }
+}
+
+open class SMFilterDecimal: SMFilterProtocol {
     
-    override open func inputField(_ inputField: SMFilterProtocol, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        let lengthCondition: Bool = super.inputField(inputField, shouldChangeTextIn: range, replacementText: text)
-        let textCondition: Bool = text.range(of: regex, options: .regularExpression) != nil || text.isEmpty
-        
-        return textCondition && lengthCondition
+    public init() {
+    }
+
+    public func filter(_ sourceText: String) -> String {
+
+        return sourceText.filter("0123456789".contains)
     }
 }

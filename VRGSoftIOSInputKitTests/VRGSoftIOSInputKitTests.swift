@@ -31,18 +31,9 @@ class VRGSoftIOSInputKitTests: XCTestCase {
         XCTAssertEqual(result, "+ 38(063) 200-42-99")
     }
     
-    func testFormattedDigitsSimple_correct() {
+    private func createSUTFormatter(mask: String) -> SMFormatter {
         
-        let inputString: String = "3806331958129"
-        
-        let formatter = createSUT(formaters: ["+ ##(###) ###-####"])
-        let formattedString: String = formatter.formattedStringFormString(originalStr: inputString)
-        
-        XCTAssertEqual(formattedString, "+ 38(063) 319-5812")
-    }
-    
-    private func createSUT(formaters: [String]) -> SMFormatterDigitSimple {
-        let formatter: SMFormatterDigitSimple = .init(formaters: formaters)
+        let formatter: SMFormatter = .init(with: mask)
         return formatter
     }
 }
